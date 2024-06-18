@@ -11,7 +11,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	if (n == 0)
 		return (0);
-	while (*(string1 + i) == *(string2 + i))
+	while (i < n)
+	{
+		if ((unsigned char)*(string1 + i) != (unsigned char)*(string2 + i))
+			return ((unsigned char)*(string1 + i) - (unsigned char)*(string2 + i));
 		i++;
-	return (*(string1 + i) - *(string2 + i));
+	}
+	return (0);
 }

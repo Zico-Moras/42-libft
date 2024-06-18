@@ -95,4 +95,23 @@ int	main()
 	printf("ft_memcmp(12345,123a5, 5) = %i\n", ft_memcmp("12345","123a5", 5));
 	printf("memcmp(123a5,12345, 5) = %i\n", memcmp("12345","123a5", 5));
 	printf("ft_memcmp(123a5,12345, 5) = %i\n", memcmp("12345","123a5", 5));
+	char memcmp1[] = "12345";
+	char memcmp2[] = "12346";
+	printf("memcmp(memcmp1, memcmp2, 5) = %i\n", ft_memcmp(memcmp1, memcmp2, 5));
+	printf("memcmp(%s, %s, 5) = %i\n", memcmp1, memcmp2, ft_memcmp(memcmp1, memcmp2, 5));
+	printf("memcmp(%s, %s, 3) = %i\n", "banana", "barco", ft_memcmp("banana", "barco", 3));
+	printf("memcmp(%s, %s, -1) = %i\n", "banana", "barco", ft_memcmp("banana", "barco", -1));
+	printf("memcmp(%s, %s, 0) = %i\n", "banana", "barco", ft_memcmp("banana", "barco", 0));
+	printf("memcmp(%s, %s, 10) = %i\n", "ana", "12345", ft_memcmp("ana" ,"12345" ,10));
+	printf("memcmp(  4) = %i\n",  ft_memcmp("\xff\xaa\xde\x12" , "\xff\xaa\xde\x12MACOSAAAAA",4));
+	ft_memcmp("\xff\xaa\xde\x12" , "\xff\xaa\xde\x12MACOSAAAAA",4);
+	printf("memcmp(%s, %s, 4) = %i\n", "12345", "12346", ft_memcmp("12345", "123456", 4));
+	ft_memcmp("12345", "12346", 4);
+	printf("ft_strnstr(%s, %s, 10) = %s\n", "o caralho", "cara", ft_strnstr("o caralho", "cara", 10));
+	printf("ft_strnstr(%s, %s, 3) = %s\n", "o caralho", "cara", ft_strnstr("o caralho", "cara", 3));
+	printf("ft_strnstr(%s, %s, 6) = %s\n", "o caralho", "cara", ft_strnstr("o caralho", "cara", 6));
+	printf("ft_strnstr(%s, %s, 20) = %s\n", "o caralho", "cara", ft_strnstr("o caralho", "cara", 20));
+	printf("ft_strnstr(%s, %s, 20) = %s\n", "o caralho", "cara", ft_strnstr("o caralho", "cara", 20));
+	printf("ft_strnstr(%s, %s, 10) = %s\n", "carro", "carro", ft_strnstr("carro", "carro", 10));
+	printf("ft_strnstr(%s, %s, 5) = %s\n", "carro", "carro", ft_strnstr("carro", "carro", 5));
 }
