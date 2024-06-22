@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: francima <francima@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 14:36:27 by francima          #+#    #+#             */
-/*   Updated: 2024/06/18 09:58:50 by francima         ###   ########.fr       */
+/*   Created: 2024/06/22 07:12:22 by francima          #+#    #+#             */
+/*   Updated: 2024/06/22 07:12:48 by francima         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			i;
-	unsigned char	*temp;
+	char	*join;
 
-	i = 0;
-	temp = (unsigned char *)s;
-	while (i < n)
-	{
-		temp[i] = (unsigned char)c;
-		i++;
-	}
-	return (s);
+	join = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!join)
+		return (NULL);
+	ft_memmove(join, s1, ft_strlen(s1));
+	ft_memmove(join + ft_strlen(s1), s2, ft_strlen(s2));
+	*(join + ft_strlen(s1) + ft_strlen(s2)) = 0;
+	return (join);
 }
