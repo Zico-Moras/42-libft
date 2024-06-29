@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: francima <francima@student.42porto.com>    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/06/23 11:15:46 by francima          #+#    #+#              #
+#    Updated: 2024/06/23 11:15:48 by francima         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
@@ -18,10 +30,6 @@ HEADER = libft.h
 
 all: $(NAME)
 	
-main : $(NAME)
-	$(CC) $(FLAGS) test.c -L. $(NAME)
-	./a.out
-
 $(NAME):
 	$(CC) $(FLAGS) -c $(SRC)
 	ar rcs $(NAME) $(OBJS)
@@ -32,12 +40,5 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
-	cc -shared -o libft.so $(OBJ)
 
 re: fclean all
-
-so:
-	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
