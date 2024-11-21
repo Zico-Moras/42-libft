@@ -20,7 +20,11 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
       ft_strtrim.c	ft_split.c	ft_itoa.c	ft_strmapi.c	ft_striteri.c\
       ft_putchar_fd.c	ft_putstr_fd.c	ft_putendl_fd.c		ft_putnbr_fd.c\
 
-OBJS = $(SRC:.c=.o) 
+PRINTF_DIR = 42-printf
+PRINTF_SRC = $(wildcard $(PRINTF_DIR)/files/*.c)
+
+OBJS = $(SRC:.c=.o)
+PRINTF_OBJS = $(notdir $(PRINTF_SRC:.c=.o))
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -29,13 +33,13 @@ CC = cc
 HEADER = libft.h
 
 all: $(NAME)
-	
-$(NAME):
-	$(CC) $(FLAGS) -c $(SRC)
-	ar rcs $(NAME) $(OBJS)
+
+$(NAME): $(PRINTF_DIR)
+	$(CC) $(FLAGS) -c $(SRC) $(PRINTF_SRC)
+	ar rcs $(NAME) $(OBJS) $(PRINTF_OBJS)
 
 clean:
-	rm -rf $(OBJS)
+	rm -rf $(OBJS) $(PRINTF_OBJS)
 	
 
 fclean: clean
