@@ -39,20 +39,6 @@ static char	*find_token_end(char *str, const char *delim)
 	return (str);
 }
 
-static char	*extract_single_token(char *str, const char *delim)
-{
-	char	*token_start;
-	char	*token_end;
-
-	token_start = skip_delimiters(str, delim);
-	if ('\0' == *token_start)
-		return (NULL);
-	token_end = find_token_end(token_start, delim);
-	if ('\0' != *token_end)
-		*token_end = '\0';
-	return (token_start);
-}
-
 char	*ft_strtok(char *str, const char *delim)
 {
 	static char	*saved_ptr;
